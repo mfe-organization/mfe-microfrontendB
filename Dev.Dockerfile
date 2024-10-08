@@ -1,5 +1,4 @@
-FROM node:18
-LABEL authors="dihnatovich"
+FROM node:18-alpine
 
 WORKDIR /app
 
@@ -9,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
-
 EXPOSE 3003
+
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "3002"]
